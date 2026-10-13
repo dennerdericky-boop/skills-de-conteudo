@@ -1,0 +1,92 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Carimbo VT</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Layout: uma coluna editorial; quatro amostras de fundo em grade que vira 2x2 no celular */
+:root{
+  --petrol:#092F35; --paper:#F2F0E9; --ink:#111111; --lav:#D8D2E8; --lime:#B7D900; --mist:#ABADA5;
+  --bg:#092F35; --fg:#F2F0E9; --muted:#ABADA5; --line:rgba(242,240,233,.14);
+  --serif:"DM Serif Display", Georgia, "Times New Roman", serif;
+  --sans:Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme:dark;
+}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:15px;line-height:1.6}
+.wrap{max-width:880px;margin:0 auto;padding-inline:20px;padding-block:48px 64px;display:grid;gap:40px}
+.eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);font-weight:600}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(34px,6vw,52px);line-height:1.05;margin:8px 0 12px;text-wrap:balance}
+h2{font-family:var(--serif);font-weight:400;font-size:24px;margin:0 0 14px}
+p{margin:0;max-width:62ch;color:var(--fg)}
+.lede{color:var(--muted)}
+.rule{width:44px;height:2px;background:var(--lime);margin-top:18px}
+.swatches{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+@media (max-width:640px){.swatches{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.sw{aspect-ratio:4/5;max-width:100%;display:flex;flex-direction:column;justify-content:space-between;padding:14px;border:1px solid var(--line)}
+.sw img{width:46%;align-self:flex-start}
+.sw .lbl{font-size:11px;letter-spacing:.08em;text-transform:uppercase;line-height:1.4}
+.sw .lbl b{display:block;font-weight:600}
+.on-dark{color:var(--paper)} .on-light{color:var(--ink)}
+.tbl{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:12px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
+code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;color:var(--lime)}
+ul{margin:0;padding-left:18px;display:grid;gap:6px;max-width:62ch}
+.files{display:grid;gap:8px}
+.files div{display:flex;gap:12px;flex-wrap:wrap;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:8px}
+.files span{color:var(--muted);font-size:13px}
+</style>
+
+<main class="wrap">
+  <header>
+    <div class="eyebrow">Vantage Times · identidade</div>
+    <h1>Carimbo VT e a regra da cor</h1>
+    <p class="lede">O T é sempre Signal Lime. O que muda é o V, conforme o fundo que fica atrás do símbolo. Posição: sempre no canto superior esquerdo.</p>
+    <div class="rule"></div>
+  </header>
+
+  <section>
+    <h2>Nos quatro fundos da marca</h2>
+    <div class="swatches">
+      <div class="sw on-dark" style="background:var(--petrol)"><img src="assets/VT_stamp_dark-background.png" alt="VT com V branco"><div class="lbl"><b>Deep Petrol</b>V branco</div></div>
+      <div class="sw on-dark" style="background:var(--ink)"><img src="assets/VT_stamp_dark-background.png" alt="VT com V branco"><div class="lbl"><b>Ink Black</b>V branco</div></div>
+      <div class="sw on-light" style="background:var(--paper)"><img src="assets/VT_stamp_cream-background.png" alt="VT com V escuro"><div class="lbl"><b>Paper</b>V escuro</div></div>
+      <div class="sw on-light" style="background:var(--lav)"><img src="assets/VT_stamp_cream-background.png" alt="VT com V escuro"><div class="lbl"><b>Editorial Lavender</b>V escuro</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Posição</h2>
+    <p>Canto <b>superior esquerdo</b>, margem de 64 px no carrossel (1080×1350). É o padrão do <code>vt_gradient.py</code>; <code>--carimbo-lado direita</code> só com pedido explícito.</p>
+  </section>
+
+  <section>
+    <h2>A regra</h2>
+    <div class="tbl"><table>
+      <tr><th>Fundo atrás do símbolo</th><th>Arquivo</th><th>V</th></tr>
+      <tr><td>Deep Petrol, Ink Black, foto escura, degradê escuro</td><td><code>VT_stamp_dark-background.png</code></td><td>branco</td></tr>
+      <tr><td>Paper, Lavender, foto clara (céu, parede clara, neblina)</td><td><code>VT_stamp_cream-background.png</code></td><td>escuro</td></tr>
+    </table></div>
+  </section>
+
+  <section>
+    <h2>Nunca</h2>
+    <ul>
+      <li>Colocar o símbolo no canto direito sem pedido explícito.</li>
+      <li>Escolher pela categoria do slide. Vale o fundo real atrás do símbolo.</li>
+      <li>V branco em fundo claro ou V escuro em fundo escuro.</li>
+      <li>V em Lime, T em outra cor, ou o símbolo inteiro numa cor só.</li>
+      <li>Distorcer, girar, trocar proporções, ou aplicar sombra, contorno, brilho, 3D ou degradê.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Arquivos usados pela /biblioteca</h2>
+    <div class="files">
+      <div><code>assets/VT_stamp_dark-background.png</code><span>fundo transparente, V branco</span></div>
+      <div><code>assets/VT_stamp_cream-background.png</code><span>fundo transparente, V escuro</span></div>
+      <div><code>scripts/vt_gradient.py</code><span>degradê + carimbo automático, 1080×1350</span></div>
+    </div>
+  </section>
+</main>
+
+</body></html>
